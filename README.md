@@ -27,3 +27,17 @@ The dictionary file is "Sportify_data_dictionary.csv"
 ### Migration of data
 The dataset were incosistent and SSIS was used for ETL (Extract, Transform and Load)
 
+![Screenshot (141)](https://github.com/user-attachments/assets/5a9dc09e-4d82-4b1e-ae4a-07fe0caf6563)
+
+![Screenshot (140)](https://github.com/user-attachments/assets/6e16550a-926e-4e1e-9d70-51716de1b53d)
+
+![Screenshot (142)](https://github.com/user-attachments/assets/6fdbd6ae-c4df-4969-b1ad-f2d787f784ee)
+
+---
+### Data Cleaning
+
+
+
+
+
+
