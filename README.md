@@ -98,12 +98,14 @@ Track completion rates:
     total_tracks_played,
     completed_tracks,
     stopped_early,
-    (stopped_early * 100.0 / total_tracks_played) AS stopped_early_percentage
+    (stopped_early * 100.0 / total_tracks_played) AS stopped_early_percentage,
+   (completed_tracks *100.0/ total_tracks_played) As completed_percentage
     
    FROM TrackCompletionStats;
 
 ```
-![Screenshot (146)](https://github.com/user-attachments/assets/9a6e2090-1c54-442a-87eb-8e107a0ab6c7)
+
+![Screenshot (146)](https://github.com/user-attachments/assets/9716300c-40a7-425f-8e1d-2a22c78533f8)
 
 
 - Are there specific tracks or artists with consistently high interruption rates?
