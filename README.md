@@ -103,7 +103,7 @@ Track completion rates:
    FROM TrackCompletionStats;
 
 ```
-![Screenshot (146)](https://github.com/user-attachments/assets/16b9009e-d28f-47c3-9966-048ff9da90ab)
+![Screenshot (146)](https://github.com/user-attachments/assets/9a6e2090-1c54-442a-87eb-8e107a0ab6c7)
 
 
 - Are there specific tracks or artists with consistently high interruption rates?
