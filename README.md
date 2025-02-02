@@ -36,6 +36,25 @@ The dataset were incosistent and SSIS was used for ETL (Extract, Transform and L
 ---
 ### Data Cleaning
 
+------
+
+### Business Questions
+Impact of shuffle mode on listening behaviour:
+- Do users play a more diverse range of tracks when shuffle mode is enabled?
+  
+```
+  SELECT 
+    shuffle, 
+    COUNT(DISTINCT track_name) AS unique_tracks_played
+FROM New_clean_sportify_stream
+GROUP BY shuffle;
+
+```
+![Screenshot (143)](https://github.com/user-attachments/assets/1bd12bda-b395-46e3-bfbb-bddaea29ac27)
+
+#### Insights
+Users tend to listen to a wider variety of tracks when shuffle is OFF 
+
 
 
 
