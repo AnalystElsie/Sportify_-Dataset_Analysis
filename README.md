@@ -106,9 +106,26 @@ Track completion rates:
 ```
 
 ![Screenshot (146)](https://github.com/user-attachments/assets/9716300c-40a7-425f-8e1d-2a22c78533f8)
-
+---
 
 - Are there specific tracks or artists with consistently high interruption rates?
+- Are there specific tracks or artists with consistently high interruption rates?
+
+```
+    SELECT 
+        track_name, 
+        artist_name,
+        COUNT(*) AS total_plays,
+        SUM(CASE WHEN Reaason_end <> 'trackdone' THEN 1 ELSE 0 END) AS interrupted_count,
+        (SUM(CASE WHEN Reaason_end <> 'trackdone' THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) AS interruption_rate
+    FROM New_clean_sportify_stream
+    GROUP BY track_name, artist_name
+    HAVING COUNT(*) > 10  -- Ensure enough plays for meaningful insights
+    ORDER BY interruption_rate DESC, artist_name
+
+```
+### insights
+
 
 
 
