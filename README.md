@@ -1,3 +1,4 @@
+<p align="center">
 # Project Title :
 Optimizing Shuffle Mode & Track Completion Rates for Enhanced User Engagement on Spotify
 
@@ -122,10 +123,9 @@ Track completion rates:
     ORDER BY interruption_rate DESC, artist_name
 
 ```
-#### insights
+#### Insights
 
-
-
+</p>
 
 
 
