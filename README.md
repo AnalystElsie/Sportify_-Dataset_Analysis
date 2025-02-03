@@ -104,6 +104,7 @@ stopped_early,
 FROM TrackCompletionStats;
 
 ```
+![Screenshot (146)](https://github.com/user-attachments/assets/161baa3e-b1bf-4dc9-a0d8-bb66b5c4c24b)
 
 - Are there specific tracks or artists with consistently high interruption rates?
 
