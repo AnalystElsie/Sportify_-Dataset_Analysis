@@ -105,11 +105,9 @@ Track completion rates:
 
 ```
 
-![Screenshot (146)](https://github.com/user-attachments/assets/9716300c-40a7-425f-8e1d-2a22c78533f8)
----
+- Are there specific tracks or artists with consistently high interruption rates?
 
-- Are there specific tracks or artists with consistently high interruption rates?
-- Are there specific tracks or artists with consistently high interruption rates?
+
 
 ```
     SELECT 
