@@ -1,5 +1,4 @@
-<p align="center">
-# Project Title :
+## Project Title:
 Optimizing Shuffle Mode & Track Completion Rates for Enhanced User Engagement on Spotify
 
 ---
@@ -44,9 +43,9 @@ Impact of shuffle mode on listening behaviour:
 - Do users play a more diverse range of tracks when shuffle mode is enabled?
   
 ```
-  SELECT 
-    shuffle, 
-    COUNT(DISTINCT track_name) AS unique_tracks_played
+SELECT 
+shuffle,
+COUNT(DISTINCT track_name) AS unique_tracks_played
 FROM New_clean_sportify_stream
 GROUP BY shuffle;
 
@@ -60,9 +59,9 @@ Users tend to listen to a wider variety of tracks when shuffle is OFF(Diasabled)
 
 ```
 SELECT 
-    COUNT(*) AS total_shuffle_plays,
-    SUM(CASE WHEN Reaason_end <> 'trackdone' THEN 1 ELSE 0 END) AS interrupted_tracks,
- cast(round(SUM(CASE WHEN Reaason_end <> 'trackdone' THEN 1 ELSE 0 END) * 100.0 / COUNT(*),2) as decimal(5,2)) AS interruption_rate
+COUNT(*) AS total_shuffle_plays,
+SUM(CASE WHEN Reaason_end <> 'trackdone' THEN 1 ELSE 0 END) AS interrupted_tracks,
+cast(round(SUM(CASE WHEN Reaason_end <> 'trackdone' THEN 1 ELSE 0 END) * 100.0 / COUNT(*),2) as decimal(5,2)) AS interruption_rate
 FROM New_clean_sportify_stream
 WHERE shuffle = 'true';
 
@@ -87,22 +86,22 @@ The highest shuffle mode was Andriod with 100,559 shuffle plays
 
 Track completion rates:
 - What percentage of tracks are stopped early versus completed?
-  
-  ```
-  WITH TrackCompletionStats AS (
-    SELECT 
-        COUNT(*) AS total_tracks_played,
-        SUM(CASE WHEN reason_end = 'track_completed' THEN 1 ELSE 0 END) AS completed_tracks,
-        SUM(CASE WHEN reason_end <> 'track_completed' THEN 1 ELSE 0 END) AS stopped_early
-    FROM New_clean_sportify_stream)
-   SELECT 
-    total_tracks_played,
-    completed_tracks,
-    stopped_early,
-    (stopped_early * 100.0 / total_tracks_played) AS stopped_early_percentage,
-   (completed_tracks *100.0/ total_tracks_played) As completed_percentage
-    
-   FROM TrackCompletionStats;
+
+```
+WITH TrackCompletionStats AS (
+SELECT 
+COUNT(*) AS total_tracks_played,
+SUM(CASE WHEN reason_end = 'track_completed' THEN 1 ELSE 0 END)
+AS completed_tracks,
+SUM(CASE WHEN reason_end <> 'track_completed' THEN 1 ELSE 0 END) AS stopped_early
+FROM New_clean_sportify_stream)
+SELECT 
+total_tracks_played,
+completed_tracks,
+stopped_early,
+(stopped_early * 100.0 / total_tracks_played) AS stopped_early_percentage,
+(completed_tracks *100.0/ total_tracks_played) As completed_percentage
+FROM TrackCompletionStats;
 
 ```
 
@@ -111,21 +110,20 @@ Track completion rates:
 
 
 ```
-    SELECT 
-        track_name, 
-        artist_name,
-        COUNT(*) AS total_plays,
-        SUM(CASE WHEN Reaason_end <> 'trackdone' THEN 1 ELSE 0 END) AS interrupted_count,
-        (SUM(CASE WHEN Reaason_end <> 'trackdone' THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) AS interruption_rate
-    FROM New_clean_sportify_stream
-    GROUP BY track_name, artist_name
-    HAVING COUNT(*) > 10  -- Ensure enough plays for meaningful insights
-    ORDER BY interruption_rate DESC, artist_name
+ SELECT 
+track_name, 
+artist_name,
+COUNT(*) AS total_plays,
+SUM(CASE WHEN Reaason_end
+<>'trackdone' THEN 1 ELSE 0 END) AS interrupted_count,
+(SUM(CASE WHEN Reaason_end <> 'trackdone' THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) AS interruption_rate
+FROM New_clean_sportify_stream
+GROUP BY track_name, artist_name
+HAVING COUNT(*) > 10  
+ORDER BY interruption_rate DESC, artist_name
 
 ```
-#### Insights
-
-</p>
+### Insights
 
 
 
